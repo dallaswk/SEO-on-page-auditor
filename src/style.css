@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+:root {
+  --font-inter: "Inter", system-ui, sans-serif;
+
+  /* Theme variables - Default Dark */
+  --bg-app: #0a0a0f;
+  --surface-100: #0f0f16;
+  --surface-200: #15151e;
+  --surface-300: #1c1c28;
+  --surface-400: #252535;
+  --surface-500: #2e2e42;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+
+  --accent-base: #6366f1;
+  --accent-light: #818cf8;
+
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-bg-hover: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: 12px;
+}
+
+:root.light {
+  --bg-app: #f1f5f9;
+  --surface-100: #ffffff;
+  --surface-200: #f8fafc;
+  --surface-300: #e2e8f0;
+  --surface-400: #cbd5e1;
+  --surface-500: #94a3b8;
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --accent-base: #4f46e5;
+  --accent-light: #6366f1;
+
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-bg-hover: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --glass-blur: 8px;
+}
+
+@theme {
+  --font-sans: var(--font-inter);
+
+  --color-surface-50: var(--bg-app);
+  --color-surface-100: var(--surface-100);
+  --color-surface-200: var(--surface-200);
+  --color-surface-300: var(--surface-300);
+  --color-surface-400: var(--surface-400);
+  --color-surface-500: var(--surface-500);
+
+  --color-accent-400: var(--accent-base);
+  --color-accent-500: var(--accent-light);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-glass-border: var(--glass-border);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-bg-hover: var(--glass-bg-hover);
+
+  --color-success-400: #22c55e;
+  --color-success-500: #4ade80;
+  --color-danger-400: #ef4444;
+  --color-danger-500: #f87171;
+  --color-warning-400: #f59e0b;
+  --color-warning-500: #fbbf24;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface-50);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  opacity: 0.2;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+  opacity: 0.3;
+}
+
+/* Glass utilities */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.glass-card:hover {
+  background: var(--glass-bg-hover);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-subtle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Stagger children animation */
+.stagger-children > * {
+  animation: fadeInUp 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.stagger-children > *:nth-child(1) {
+  animation-delay: 0.02s;
+}
+.stagger-children > *:nth-child(2) {
+  animation-delay: 0.04s;
+}
+.stagger-children > *:nth-child(3) {
+  animation-delay: 0.06s;
+}
+.stagger-children > *:nth-child(4) {
+  animation-delay: 0.08s;
+}
+.stagger-children > *:nth-child(5) {
+  animation-delay: 0.1s;
+}
+.stagger-children > *:nth-child(6) {
+  animation-delay: 0.12s;
+}
+.stagger-children > *:nth-child(7) {
+  animation-delay: 0.14s;
+}
+.stagger-children > *:nth-child(8) {
+  animation-delay: 0.16s;
+}
+.stagger-children > *:nth-child(9) {
+  animation-delay: 0.18s;
+}
+.stagger-children > *:nth-child(10) {
+  animation-delay: 0.2s;
+}
+
+/* Textarea */
+textarea {
+  font-family: var(--font-sans);
+}
